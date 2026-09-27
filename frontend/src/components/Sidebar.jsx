@@ -32,7 +32,7 @@ export default function Sidebar({ activeTab, setActiveTab, lang, stats }) {
   return (
     <aside className="w-full md:w-64 bg-white border-b md:border-r border-slate-200 flex md:flex-col shrink-0 min-h-auto md:min-h-[calc(100vh-5.5rem)] overflow-x-auto">
       <div className="p-2 md:p-4 flex md:flex-col space-x-2 md:space-x-0 md:space-y-1">
-        <div className="px-3 py-2 text-2xs font-bold uppercase tracking-wider text-slate-400">
+        <div className="px-3 py-2 text-2xs font-extrabold uppercase tracking-widest text-[#064e3b]">
           {lang === 'ta' ? 'முதன்மை வழிசெலுத்தல்' : 'Research Modules'}
         </div>
         {menuItems.map((item) => {
@@ -44,8 +44,8 @@ export default function Sidebar({ activeTab, setActiveTab, lang, stats }) {
               onClick={() => setActiveTab(item.id)}
               className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium transition-all ${
                 isActive
-                  ? 'bg-[#6B1D2F] text-white shadow-xs font-semibold'
-                  : 'text-slate-700 hover:bg-slate-100 hover:text-slate-900'
+                  ? 'bg-[#064e3b] text-[#F8E7C9] font-bold shadow-md font-semibold'
+                  : 'text-[#064e3b] hover:bg-[#064e3b]/10 font-semibold'
               }`}
             >
               <div className="flex items-center space-x-3">
@@ -62,8 +62,8 @@ export default function Sidebar({ activeTab, setActiveTab, lang, stats }) {
                 <span
                   className={`px-1.5 py-0.5 text-xs rounded-md font-semibold ${
                     isActive
-                      ? 'bg-white/20 text-white'
-                      : item.badgeColor || (item.alert ? 'bg-rose-100 text-rose-800' : 'bg-slate-100 text-slate-600')
+                      ? 'bg-[#064e3b]/20 text-[#064e3b]'
+                      : item.badgeColor || (item.alert ? 'bg-rose-100 text-rose-800' : 'bg-white border border-[#064e3b]/20 text-[#064e3b]')
                   }`}
                 >
                   {item.count}

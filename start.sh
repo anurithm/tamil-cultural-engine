@@ -1,9 +1,8 @@
 #!/bin/bash
 echo "Starting Tamil Cultural Engine..."
 
-# Start Backend
+# Start Backend (runs from project root where main.py lives)
 echo "Starting backend..."
-cd backend
 if [ ! -d ".venv" ]; then
     echo "Creating virtual environment..."
     python3 -m venv .venv
@@ -15,7 +14,7 @@ BACKEND_PID=$!
 
 # Start Frontend
 echo "Starting frontend..."
-cd ../frontend
+cd frontend
 npm install > /dev/null
 npm run dev -- --port 5173 &
 FRONTEND_PID=$!

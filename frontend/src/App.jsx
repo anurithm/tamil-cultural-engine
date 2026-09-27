@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
+import Chatbot from './components/Chatbot';
 import Dashboard from './pages/Dashboard';
 import Traditions from './pages/Traditions';
 import BranchDetail from './pages/BranchDetail';
@@ -63,7 +64,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F8F9FA] flex flex-col">
+    <div className="min-h-screen bg-[#F8E7C9] text-[#064e3b] flex flex-col">
       {/* Top Navbar */}
       <Navbar
         lang={lang}
@@ -188,6 +189,7 @@ export default function App() {
             />
           )}
         </main>
+        <Chatbot lang={lang} />
       </div>
     </div>
   );

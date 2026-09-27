@@ -4,41 +4,24 @@
 
 @layer base {
   body {
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    color: #1E293B;
-    background-color: #F8F9FA;
-  }
-
-  h1, h2, h3, .font-serif-title {
-    font-family: 'Cinzel', Georgia, serif;
-  }
-
-  .tamil-font {
-    font-family: 'Noto Sans Tamil', 'Mukta Malar', system-ui, sans-serif;
+    background-color: #F8E7C9;
+    color: #064e3b;
+    font-weight: 500;
   }
 }
 
-/* Custom subtle scrollbars */
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
-::-webkit-scrollbar-track {
-  background: #f1f5f9;
-}
-::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
-}
-
-/* Card hover transitions */
-.heritage-card {
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.heritage-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px -5px rgba(107, 29, 47, 0.08), 0 8px 10px -6px rgba(107, 29, 47, 0.04);
+@layer utilities {
+  .card-champagne {
+    background-color: #FFFFFF;
+    color: #064e3b;
+    border-radius: 1rem;
+    border: 2px solid rgba(6, 78, 59, 0.15);
+    box-shadow: 0 4px 15px rgba(6, 78, 59, 0.05);
+    transition: all 0.3s ease;
+  }
+  .card-champagne:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(6, 78, 59, 0.15);
+    border-color: rgba(6, 78, 59, 0.4);
+  }
 }

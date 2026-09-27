@@ -254,11 +254,10 @@ export default function BranchDetail({
         <div className="flex space-x-4">
           <button
             onClick={() => setActiveView('comparison')}
-            className={`pb-3 text-xs font-bold transition-colors border-b-2 flex items-center space-x-1.5 ${
-              activeView === 'comparison'
+            className={`pb-3 text-xs font-bold transition-colors border-b-2 flex items-center space-x-1.5 ${activeView === 'comparison'
                 ? 'border-[#6B1D2F] text-[#6B1D2F]'
                 : 'border-transparent text-slate-500 hover:text-slate-900'
-            }`}
+              }`}
           >
             <span>Comparison Matrix</span>
             <span className="px-1.5 py-0.2 rounded bg-slate-100 text-slate-600 text-2xs">
@@ -268,11 +267,10 @@ export default function BranchDetail({
 
           <button
             onClick={() => setActiveView('evidence')}
-            className={`pb-3 text-xs font-bold transition-colors border-b-2 flex items-center space-x-1.5 ${
-              activeView === 'evidence'
+            className={`pb-3 text-xs font-bold transition-colors border-b-2 flex items-center space-x-1.5 ${activeView === 'evidence'
                 ? 'border-[#6B1D2F] text-[#6B1D2F]'
                 : 'border-transparent text-slate-500 hover:text-slate-900'
-            }`}
+              }`}
           >
             <span>Evidence Trail & Reconstruction</span>
             <span className="px-1.5 py-0.2 rounded bg-rose-100 text-rose-800 text-2xs">
@@ -282,11 +280,10 @@ export default function BranchDetail({
 
           <button
             onClick={() => setActiveView('graph')}
-            className={`pb-3 text-xs font-bold transition-colors border-b-2 flex items-center space-x-1.5 ${
-              activeView === 'graph'
+            className={`pb-3 text-xs font-bold transition-colors border-b-2 flex items-center space-x-1.5 ${activeView === 'graph'
                 ? 'border-[#6B1D2F] text-[#6B1D2F]'
                 : 'border-transparent text-slate-500 hover:text-slate-900'
-            }`}
+              }`}
           >
             <Network className="w-3.5 h-3.5" />
             <span>Knowledge Graph</span>
@@ -325,11 +322,10 @@ export default function BranchDetail({
                   <button
                     key={g.id}
                     onClick={() => setSelectedGap(g)}
-                    className={`w-full text-left p-3 rounded-lg border text-xs transition-all ${
-                      isSelected
+                    className={`w-full text-left p-3 rounded-lg border text-xs transition-all ${isSelected
                         ? 'bg-amber-50/80 border-amber-400 shadow-2xs font-semibold'
                         : 'bg-slate-50/60 border-slate-200 hover:bg-slate-100'
-                    }`}
+                      }`}
                   >
                     <div className="flex items-center justify-between">
                       <span className="text-slate-900 truncate max-w-[170px]">
@@ -372,13 +368,14 @@ export default function BranchDetail({
         isOpen={showAddSource}
         onClose={() => setShowAddSource(false)}
         onSourceAdded={async () => {
+          // Analysis already ran inside the modal; just refresh branch stats
           await loadAllBranchData();
           setUpdateNotification(
             lang === 'ta'
-              ? 'புதிய நேரடி மூலப்பதிவு வெற்றிகரமாக இணைக்கப்பட்டது. மறுபகுப்பாய்வு இயக்கப்படுகிறது...'
-              : 'New live source added. Re-running cultural analysis...'
+              ? 'நேரடி மூலங்கள் இணைக்கப்பட்டன. ஒப்பீட்டு மேட்ரிக்ஸ் புதுப்பிக்கப்பட்டது.'
+              : 'Live sources ingested & analysed. Comparison matrix updated.'
           );
-          setTimeout(() => handleRunAnalysis(), 500);
+          setTimeout(() => setUpdateNotification(null), 4000);
         }}
         lang={lang}
       />

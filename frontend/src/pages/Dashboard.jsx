@@ -65,8 +65,8 @@ export default function Dashboard({
     return (
       <div className="p-8 flex flex-col items-center justify-center min-h-[50vh] text-center space-y-4">
         <AlertTriangle className="w-12 h-12 text-rose-500" />
-        <h2 className="text-xl font-bold text-slate-900">Failed to load Dashboard Data</h2>
-        <p className="text-sm text-slate-500 max-w-md">The backend API might not be running or is unreachable. Please ensure the backend server is running on port 8000.</p>
+        <h2 className="text-xl font-bold text-[#064e3b] font-black">Failed to load Dashboard Data</h2>
+        <p className="text-sm text-[#064e3b] font-bold max-w-md">The backend API might not be running or is unreachable. Please ensure the backend server is running on port 8000.</p>
         <button onClick={() => window.location.reload()} className="px-4 py-2 bg-[#6B1D2F] text-white rounded-lg font-semibold text-sm">Retry</button>
       </div>
     );
@@ -86,7 +86,7 @@ export default function Dashboard({
     { title: t.dashboard.domainsCount, value: total_traditions, icon: Compass, color: 'text-amber-800', bg: 'bg-amber-50' },
     { title: t.dashboard.sourcesCount, value: total_sources, icon: FileText, color: 'text-blue-800', bg: 'bg-blue-50' },
     { title: t.dashboard.elementsCount, value: total_elements, icon: ScanText, color: 'text-indigo-800', bg: 'bg-indigo-50' },
-    { title: t.dashboard.gapsCount, value: total_gaps, icon: GitCompare, color: 'text-rose-800', bg: 'bg-rose-50', alert: true },
+    { title: t.dashboard.gapsCount, value: total_gaps, icon: GitCompare, color: 'text-rose-700 font-bold', bg: 'bg-rose-50', alert: true },
     { title: t.dashboard.pendingCount, value: total_pending, icon: ShieldCheck, color: 'text-amber-800', bg: 'bg-amber-50' },
     { title: t.dashboard.verifiedCount, value: total_verified, icon: Archive, color: 'text-emerald-800', bg: 'bg-emerald-50' },
   ];
@@ -94,18 +94,18 @@ export default function Dashboard({
   return (
     <div className="p-6 sm:p-8 space-y-8 max-w-7xl mx-auto">
       {/* Hero Banner */}
-      <div className="bg-gradient-to-r from-[#6B1D2F] via-[#7D2439] to-[#8C2C42] rounded-2xl p-6 sm:p-8 text-white shadow-md relative overflow-hidden">
+      <div className="bg-[#064e3b] rounded-2xl p-6 sm:p-8 text-[#F8E7C9] shadow-2xl relative overflow-hidden">
         <div className="relative z-10 max-w-3xl space-y-3">
-          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-white/10 text-amber-200 text-xs font-semibold backdrop-blur-xs border border-white/10">
+          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[#F8E7C9]/20 text-white text-xs font-bold uppercase tracking-widest border border-[#F8E7C9]/40">
             <Sparkles className="w-3.5 h-3.5 text-amber-300" />
             <span>{t.eventBadge}</span>
           </div>
 
-          <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight font-serif-title text-amber-50">
+          <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight font-serif-title text-white">
             {t.dashboard.title}
           </h1>
 
-          <p className="text-sm text-amber-100/90 leading-relaxed font-light">
+          <p className="text-sm text-[#F8E7C9] font-medium leading-relaxed font-light">
             {t.dashboard.overview}
           </p>
 
@@ -126,7 +126,7 @@ export default function Dashboard({
 
         {/* Decorative background watermark */}
         <div className="absolute right-4 -bottom-8 opacity-10 pointer-events-none select-none">
-          <Compass className="w-64 h-64 text-white" />
+          <div className="absolute -top-20 -right-20 w-64 h-64 bg-[#F8E7C9]/10 rounded-full blur-[80px] pointer-events-none"></div><Compass className="w-64 h-64 text-[#F8E7C9]/10" />
         </div>
       </div>
 
@@ -137,7 +137,7 @@ export default function Dashboard({
           return (
             <div
               key={idx}
-              className="bg-white rounded-xl border border-slate-200 p-4 shadow-2xs hover:border-slate-300 transition-all"
+              className="card-champagne !p-5"
             >
               <div className="flex items-center justify-between">
                 <span className={`p-2 rounded-lg ${card.bg} ${card.color}`}>
@@ -148,10 +148,10 @@ export default function Dashboard({
                 )}
               </div>
               <div className="mt-3">
-                <span className="text-2xl font-extrabold text-slate-900 font-serif-title">
+                <span className="text-2xl font-extrabold text-[#064e3b] font-black font-serif-title">
                   {card.value}
                 </span>
-                <p className="text-xs font-medium text-slate-500 mt-0.5 line-clamp-1">
+                <p className="text-xs font-medium text-[#064e3b] font-bold mt-0.5 line-clamp-1">
                   {card.title}
                 </p>
               </div>
@@ -164,10 +164,10 @@ export default function Dashboard({
       <div className="space-y-4">
         <div className="flex items-center justify-between">
           <div>
-            <h2 className="text-xl font-bold text-slate-900 font-serif-title">
+            <h2 className="text-xl font-bold text-[#064e3b] font-black font-serif-title">
               {lang === 'ta' ? '7 கலாச்சார பாரம்பரிய களங்கள்' : '7 Cultural Heritage Domains'}
             </h2>
-            <p className="text-xs text-slate-500">
+            <p className="text-xs text-[#064e3b] font-bold">
               {lang === 'ta'
                 ? 'ஒவ்வொரு களமும் பல கிளைகளையும் ஆவணப்படுத்தப்பட்ட ஒப்பீட்டுத் தரவையும் கொண்டுள்ளது.'
                 : 'Click any domain to explore branches, uploaded real sources, and detected potential gaps.'}
@@ -181,7 +181,7 @@ export default function Dashboard({
             return (
               <div
                 key={trad.id}
-                className="heritage-card bg-white rounded-2xl border border-slate-200 p-6 flex flex-col justify-between shadow-2xs relative group"
+                className="heritage-card card-champagne p-6 flex flex-col justify-between relative group"
               >
                 <div>
                   {/* Card Header */}
@@ -192,7 +192,7 @@ export default function Dashboard({
                     <span
                       className={`px-2 py-0.5 rounded text-2xs font-extrabold tracking-wider ${
                         trad.urgency_level === 'CRITICAL'
-                          ? 'bg-rose-100 text-rose-800'
+                          ? 'bg-rose-100 text-rose-700 font-bold'
                           : trad.urgency_level === 'HIGH'
                           ? 'bg-amber-100 text-amber-800'
                           : 'bg-emerald-100 text-emerald-800'
@@ -204,7 +204,7 @@ export default function Dashboard({
 
                   {/* Title & Tamil Name */}
                   <div className="mt-4">
-                    <h3 className="text-lg font-bold text-slate-900 font-serif-title group-hover:text-[#6B1D2F] transition-colors">
+                    <h3 className="text-lg font-bold text-[#064e3b] font-black font-serif-title group-hover:text-[#6B1D2F] transition-colors">
                       {trad.name}
                     </h3>
                     <p className="text-xs font-semibold text-amber-900 tamil-font mt-0.5">
@@ -213,22 +213,22 @@ export default function Dashboard({
                   </div>
 
                   {/* Description */}
-                  <p className="text-xs text-slate-500 mt-2 leading-relaxed line-clamp-2">
+                  <p className="text-xs text-[#064e3b] font-bold mt-2 leading-relaxed line-clamp-2">
                     {lang === 'ta' ? trad.tamil_description : trad.description}
                   </p>
 
                   {/* Domain Metrics */}
                   <div className="mt-4 pt-3 border-t border-slate-100 grid grid-cols-3 gap-2 text-center text-xs">
-                    <div className="bg-slate-50 p-2 rounded-lg">
-                      <span className="font-bold text-slate-900">{trad.branch_count}</span>
-                      <p className="text-3xs text-slate-500 uppercase mt-0.5">Branches</p>
+                    <div className="bg-[#F8E7C9] p-2 rounded-lg">
+                      <span className="font-bold text-[#064e3b] font-black">{trad.branch_count}</span>
+                      <p className="text-3xs text-[#064e3b] font-bold uppercase mt-0.5">Branches</p>
                     </div>
-                    <div className="bg-slate-50 p-2 rounded-lg">
-                      <span className="font-bold text-slate-900">{trad.source_count}</span>
-                      <p className="text-3xs text-slate-500 uppercase mt-0.5">Sources</p>
+                    <div className="bg-[#F8E7C9] p-2 rounded-lg">
+                      <span className="font-bold text-[#064e3b] font-black">{trad.source_count}</span>
+                      <p className="text-3xs text-[#064e3b] font-bold uppercase mt-0.5">Sources</p>
                     </div>
-                    <div className="bg-rose-50/70 p-2 rounded-lg border border-rose-100">
-                      <span className="font-bold text-rose-800">{trad.gap_count}</span>
+                    <div className="bg-rose-100 p-2 rounded-lg border border-rose-300">
+                      <span className="font-bold text-rose-700 font-bold">{trad.gap_count}</span>
                       <p className="text-3xs text-rose-600 uppercase mt-0.5">Gaps</p>
                     </div>
                   </div>
