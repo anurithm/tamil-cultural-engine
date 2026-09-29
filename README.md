@@ -3,6 +3,8 @@
 ### Cultural Memory Engine
 **AUREX’26 – Track 06: Open Innovation**
 
+🚀 **Live Demo (Hackathon Deployment):** [https://frontend-sandy-ten-90.vercel.app](https://frontend-sandy-ten-90.vercel.app)
+
 > *"Don't just archive what remains. Detect what is disappearing while there is still time to preserve it."*
 
 ---
